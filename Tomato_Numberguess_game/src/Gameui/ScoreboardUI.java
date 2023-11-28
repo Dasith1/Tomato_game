@@ -19,7 +19,7 @@ public class ScoreboardUI extends JFrame {
     private JTable scoreTable;
     private DefaultTableModel tableModel;
 
-    public ScoreboardUI() {
+    public ScoreboardUI(String playerName, int score) {
     	setBackground(new Color(25, 25, 112));
         setTitle("Scoreboard");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,7 +123,7 @@ public class ScoreboardUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose(); // Close the current ScoreboardUI window
                 // Create an instance of GameUI with a default player name
-                GameUI game = new GameUI("Player");
+                GameUI game = new GameUI(playerName);
                 game.setSize(910, 700);
 			    game.setLocationRelativeTo(null);
                 game.setVisible(true);
@@ -190,7 +190,7 @@ public class ScoreboardUI extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                ScoreboardUI scoreboardUI = new ScoreboardUI();
+                ScoreboardUI scoreboardUI = new ScoreboardUI("DefaultPlayer", 0);
                 scoreboardUI.setVisible(true);
             }
         });

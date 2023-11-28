@@ -267,7 +267,7 @@ public class GameUI extends JFrame {
         savePlayerScore();
 
         // Create an instance of ScoreboardUI and display it
-        ScoreboardUI scoreboardUI = new ScoreboardUI();
+        ScoreboardUI scoreboardUI = new ScoreboardUI(playerName, score);
         scoreboardUI.setVisible(true);
 
         dispose(); // Close the current GameUI window
@@ -310,7 +310,10 @@ public static void  playgamesound() {
 		
 	}
 	
-    
+public void setScore(int score) {
+    this.score = score;
+    scoreLabel.setText("Score: " + this.score);
+}
 
     public static void main(String[] args) {
     	 String playerName = "Player1";
